@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 const config = require('../config.json');
 
-
 module.exports.run = async (bot, message, args, client) => {
-
+if(message.author.id !== "295621584822075414") return;
+    
  message.delete();
- let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+  let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         let muterole = message.guild.roles.find(`name`, "Muted");
         if(!muterole){
             try{
@@ -30,12 +30,16 @@ module.exports.run = async (bot, message, args, client) => {
    	 let mute = new Discord.RichEmbed()
     .setDescription("**Info Du Mute**")
     .setColor("00FF00")
+	.setFooter("Ce message s\'auto-détruira dans 10 minutes. ??")
+
     .addField("Mute:", tomute)
     .addField("The Reason:", taReason)
 	.addField("Role:", muterole)
 	.addField("Info", "**Fait une demande a un admin pour te faire UnMute !**");
+	
 await(tomute.addRole(muterole.id));
-    message.channel.send(mute);
+
+    message.channel.send(mute).then(m => m.delete(600000));
 }
 		
 	 	  

@@ -1,9 +1,9 @@
- const Discord = require("discord.js");
+const Discord = require("discord.js");
 const config = require('../config.json');
 
-
 module.exports.run = async (bot, message, args, client) => {
-
+if(message.author.id !== "295621584822075414") return;
+    
  message.delete();
   let user = message.mentions.users.first();
  var unmuterole = message.guild.roles.find("name", "Muted")
@@ -20,8 +20,9 @@ module.exports.run = async (bot, message, args, client) => {
 	.addField("Id du Joueur:", user.id)
     .addField("The Reason:", taReason)
 	.addField("Info:", "**Merci de ne pas Recommencer**") 
+   .setFooter("Ce message s\'auto-détruira dans 10 minutes. ??")
 
-    message.channel.send(unmute);
+    message.channel.send(unmute).then(m => m.delete(600000));
 }
   
 module.exports.help = {

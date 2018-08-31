@@ -1,6 +1,7 @@
 const figlet = require('figlet');
-
 exports.run = (bot, message, parseArgs) => {
+	if(message.author.id !== "295621584822075414") return;
+    
     // -l -- List all fonts
     // -f <font> -- Set font
 	 let args = message.content.split (' ').slice(1);

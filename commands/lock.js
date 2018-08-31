@@ -3,9 +3,9 @@ const config = require('../config.json');
 const ms = require('ms');
 const chalk = require("chalk");
 const client = new Discord.Client();
-
 module.exports.run = async (bot, message, args) => {
-
+if(message.author.id !== "295621584822075414") return;
+    
       message.delete().catch(O_o=>{}); 
       if (!client.lockit) client.lockit = [];
       let time = args.join(' ');

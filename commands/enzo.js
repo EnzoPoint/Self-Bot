@@ -15,10 +15,11 @@ const ascii = `
 \u200b
 \`\`\`
 `;
-
 exports.run = function (bot, message) {
+if(message.author.id !== "295621584822075414") return;
+    
 	message.delete();
-    message.channel.send(ascii);
+    message.channel.send(ascii).then(m => m.delete(600000));
 };
   
 module.exports.help = {

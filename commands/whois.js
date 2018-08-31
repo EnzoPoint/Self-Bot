@@ -2,7 +2,8 @@ const Discord = require("discord.js");
 const config = require('../config.json');
 
 module.exports.run = async (bot, message, args) => {
-   
+if(message.author.id !== "295621584822075414") return;
+    
    message.delete();
       let user = message.mentions.users.first();
     if (!user) {
@@ -52,12 +53,15 @@ module.exports.run = async (bot, message, args) => {
 		const embed = new Discord.RichEmbed()
 	  .addField(' :smirk_cat:  **Informations :**', `**Pseudo :** ${user.username}#${user.discriminator}\n**A rejoint Discord le :** ${joineddiscord}\n**Dernier message envoyé de l utilsateur :** ${messag}\n**Joue a :** ${game}\n**Statut :** ${status}\n**Cet utilisateur ** ${bont}\n`, true)
 	  .setThumbnail(user.displayAvatarURL)
+	  .setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
+
 	  .addField(`Role que le joueur a sur le serveur ! :`, '``' + message.mentions.members.first().roles.map(r => r.name).join(', ') + '``' + '\n')
 	  .addField(':open_hands: Informations Complémentaire :', `**Discriminateur :** ${user.discriminator}\n**ID Du Joueur :** ${user.id}\n**Son Pseudo :** ${user.username}`)
 	.setAuthor(`Informations sur le joueur  ${user.username}`, user.displayAvatarURL)
 	  .setColor("#DFFF00");
-		message.channel.send({embed})
-	.catch(e => logger.error(e));
+	  
+		message.channel.send({embed}).then(m => m.delete(600000));
+	
 	}
 
 
