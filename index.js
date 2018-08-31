@@ -4,7 +4,7 @@ const config = require("./config.json");
 const Discord = require("discord.js");
 const fs = require("fs");
 const bot = new Discord.Client({ disableEveryone: true });
-
+const chalk = require("chalk")
   // COMMANDS HANDLER
 bot.commands = new Discord.Collection();
 
@@ -13,22 +13,26 @@ fs.readdir("./commands/", (err, files) => {
     if (err) console.log(err);
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if (jsfile.length <= 0) {
-        console.log("Couldn't find commands.");
+        console.log("Je ne trouve pas de Commande :p !.");
         return;
     }
+bot.on("ready", async () => {
 
     jsfile.forEach((f, i) => {
         let props = require(`./commands/${f}`);
-        console.log(`${f} loaded!`);
-        bot.commands.set(props.help.name, props);
+        console.log("--------------------------------------");
+        console.log('--> ' + (chalk.yellow('SelfBot By ENZO2911 ')) +' \n--> ' + (chalk.magenta('Connecter avec succès :')) + ' \n--> ' + (chalk.green(`Name De L'hote:        `))+ `[ ${bot.user.tag} ]` + ' \n--> '+(chalk.green('Nombre de commande:    ')) +  `[ ! ]`  + '\n--> '+ (chalk.green('Nombre d\'utilisateurs: ')) + `[ ${bot.users.size} ]` + '\n--> '+ (chalk.green('Nombre de salons:      ')) + `[ ${bot.channels.size} ]` + '\n--> '+ (chalk.green('Nombre de serveurs:    ')) + `[ ${bot.guilds.size} ]` + '\n--> '+ (chalk.green('Nombre De Commande:   ')) + `[ ${f} ]`);
+        console.log("--------------------------------------");
+        console.log('--> ' + (chalk.green(`I'm ready !`)));
+        console.log('______________________________________');
+ 
+		 bot.commands.set(props.help.name, props);
+		 bot.user.setActivity("Look Serie", { type: "LISTENING" });
+ 
     });
 });
-
-bot.on("ready", async () => {
-    console.log(`${bot.user.username} is online on ${bot.guilds.size} servers!`);
-    bot.user.setActivity("Look Serie", { type: "LISTENING" });
-
 });
+
 
 bot.on("message", async message => {
     if (message.author.bot) return;
@@ -40,7 +44,7 @@ bot.on("message", async message => {
     let cmd = messageArray[0];
     let commandfile = bot.commands.get(cmd.slice(prefix.length));
     if (commandfile) commandfile.run(bot, message, args);
- var part = message.author.id !== "295621584822075414"
+    var part = message.author.id !== "295621584822075414"
 	  
   
 ////////////////////////////// CHANGE LE JEUX ///////////////////////////////////////////
@@ -55,7 +59,7 @@ bot.on("message", async message => {
 	  message.delete();
     if(message.author.id !== "295621584822075414") return;
       bot.user.setStatus(argresult); return message.reply('Mon **status** a était **modifié** avec **succés** !!')
-      // idle = absent | dnd = offline  | invisible = invisible  | online = online //
+    // idle = absent | dnd = offline  | invisible = invisible  | online = online //
     } else 
 //////////////////////////////// CHANGE NAME OF BOT ///////////////////////////////////////
    if(message.content.startsWith(prefix + 'setname')){
