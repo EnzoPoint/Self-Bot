@@ -1,12 +1,11 @@
 const Discord = require("discord.js");
 const config = require('../config.json');
 const figlet = require('figlet');
-exports.run = (bot, message) => {
+exports.run = (bot, message, args) => {
 	if(message.author.id !== "295621584822075414") return;
     
     // -l -- List all fonts
     // -f <font> -- Set fonts
-	let args = message.content.split (' ').slice(1);
 	 const parsed = bot.utils.parseArgs(args, ['l', 'f:']);
    
     if (parsed.options.l) {

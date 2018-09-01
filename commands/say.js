@@ -8,7 +8,7 @@ message.delete();
 	var embed = new Discord.RichEmbed()
     .setColor(`#OOFFOO`)
 	.setDescription(Say)	
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. ??")
+	.setFooter("Ce message s\'auto-détruira dans 10 minutes.   ??")
 
 	message.channel.sendEmbed(embed).then(m => m.delete(600000));
     
