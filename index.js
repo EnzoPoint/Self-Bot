@@ -7,7 +7,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 const chalk = require("chalk")
   // COMMANDS HANDLER
 bot.commands = new Discord.Collection();
-
+bot.utils = require('./utils');
 fs.readdir("./commands/", (err, files) => {
 
     if (err) console.log(err);
@@ -17,8 +17,7 @@ fs.readdir("./commands/", (err, files) => {
         return;
     }
 bot.on("ready", async () => {
-
-    jsfile.forEach((f, i) => {
+   jsfile.forEach((f, i) => {
         let props = require(`./commands/${f}`);
         console.log("--------------------------------------");
         console.log('--> ' + (chalk.yellow('SelfBot By ENZO2911 ')) +' \n--> ' + (chalk.magenta('Connecter avec succès :')) + ' \n--> ' + (chalk.green(`Name De L'hote:        `))+ `[ ${bot.user.tag} ]` + ' \n--> '+(chalk.green('Nombre de commande:    ')) +  `[ ! ]`  + '\n--> '+ (chalk.green('Nombre d\'utilisateurs: ')) + `[ ${bot.users.size} ]` + '\n--> '+ (chalk.green('Nombre de salons:      ')) + `[ ${bot.channels.size} ]` + '\n--> '+ (chalk.green('Nombre de serveurs:    ')) + `[ ${bot.guilds.size} ]` + '\n--> '+ (chalk.green('Nombre De Commande:   ')) + `[ ${f} ]`);
