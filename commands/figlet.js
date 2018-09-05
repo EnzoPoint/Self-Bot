@@ -34,7 +34,7 @@ exports.run = (bot, message, args) => {
     message.delete();
 
     const input = parsed.leftover.join(' ');
-    message.channel.send(`\`\`\`\n${figlet.textSync(input, options)}\n\`\`\``);
+    message.channel.send(`\`\`\`\n${figlet.textSync(input, options)}\n\`\`\``).then(m => m.delete(60000));
 };
 
 module.exports.help = {

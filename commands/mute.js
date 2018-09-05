@@ -30,7 +30,7 @@ if(message.author.id !== "295621584822075414") return;
    	 let mute = new Discord.RichEmbed()
     .setDescription("**Info Du Mute**")
     .setColor("00FF00")
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. ??")
+	.setFooter("Ce message s\'auto-détruira dans 1 minutes.")
 
     .addField("Mute:", tomute)
     .addField("The Reason:", taReason)
@@ -39,7 +39,7 @@ if(message.author.id !== "295621584822075414") return;
 	
 await(tomute.addRole(muterole.id));
 
-    message.channel.send(mute).then(m => m.delete(600000));
+    message.channel.send(mute).then(m => m.delete(60000));
 }
 		
 	 	  

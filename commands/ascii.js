@@ -11,7 +11,7 @@ module.exports.run = (client, message, args) => {
         return
       }
     
-      message.edit("```\n" + res + "```\n").then(m => m.delete(600000));
+      message.edit("```\n" + res + "```\n").then(m => m.delete(60000));
     })
 };
 module.exports.help = {

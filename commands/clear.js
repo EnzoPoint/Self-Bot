@@ -13,8 +13,8 @@ if(message.author.id !== "295621584822075414") return;
             let embed = new Discord.RichEmbed()
             .setColor('00FF00')
             .setDescription(`${message.author} deleted **${messagesDeleted}** messages.`)
-            .setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
-            message.channel.send(embed).then(m => m.delete(600000));
+            .setFooter("Ce message s\'auto-detruira dans 1 minutes.")
+            message.channel.send(embed).then(m => m.delete(60000));;
           })
           .catch(err => {
             console.log('Erreur Clear !');

@@ -26,9 +26,9 @@ exports.run = (bot, message, args) => {
 	
 	.addField("**Résultat:**", answer)
 	
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
+	.setFooter("Ce message s\'auto-détruira dans 1 minutes. 💥")
 	
-    message.channel.send(calcule).then(m => m.delete(600000));
+    message.channel.send(calcule).then(m => m.delete(60000));
 
 };
 

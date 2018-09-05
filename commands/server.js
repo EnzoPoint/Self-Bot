@@ -10,7 +10,7 @@ message.delete();
     let serverembed = new Discord.RichEmbed()
         .setColor("#42dff4")
 		.setDescription("**-------- SERVER INFO --------**")
-		.setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
+		.setFooter("Ce message s\'auto-detruira dans 1 minutes.")
 
         .addField("Server:", message.guild.name)
         .addField("Creator's id:", bot.user.createdTimestamp, true)
@@ -23,7 +23,7 @@ message.delete();
 		.addField('Niveau de vérification du Server:', message.guild.verificationLevel)
 		.setThumbnail(servericon)
 		
-		 message.channel.send(serverembed).then(m => m.delete(600000));
+		 message.channel.send(serverembed).then(m => m.delete(60000));
 }
 
 module.exports.help = {

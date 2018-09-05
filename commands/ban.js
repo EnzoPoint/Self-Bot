@@ -11,7 +11,7 @@ if(message.author.id !== "295621584822075414") return;
     let banEmbed = new Discord.RichEmbed()
     .setDescription("**Info Du Ban**")
     .setColor("00FF00")
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. ??")
+	.setFooter("Ce message s\'auto-detruira dans 1 minutes.")
 
     .addField("Banned User:", `${bUser} Avec l'ID ${bUser.id}`)
     .addField("Banned By:", `<@${message.author.id}> Avec l'ID ${message.author.id}`)
@@ -24,7 +24,7 @@ if(message.author.id !== "295621584822075414") return;
 
     message.guild.member(bUser).ban(bReason);
   //  incidentchannel.send(banEmbed);
-    message.channel.send(banEmbed).then(m => m.delete(600000));
+    message.channel.send(banEmbed).then(m => m.delete(60000));
 }
 
 module.exports.help = {

@@ -18,8 +18,8 @@ module.exports.run = async (bot, message) => {
     .setColor("00FF00")
     .addField(`${user.username}'s Avatar`, `[Download](${user.avatarURL})`)
 	.setImage(user.avatarURL)
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
-    message.channel.send(avatar).then(m => m.delete(600000));
+	.setFooter("Ce message s\'auto-détruira dans 1 minutes. 💥")
+    message.channel.send(avatar).then(m => m.delete(60000));
 };
 
 module.exports.help = {

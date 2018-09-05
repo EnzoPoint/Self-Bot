@@ -1,8 +1,8 @@
 const Discord = require("discord.js");
 const weather = require("weather-js");
 
-module.exports.run = async (bot, message, args) => {
-
+module.exports.run = async (bot, message, me, args) => {
+if(me) return;
   weather.find({search: args.join(" "), degreeType: 'C' }, function(err, result) {
 
   
@@ -30,9 +30,9 @@ module.exports.run = async (bot, message, args) => {
       .addField('Vents:',current.winddisplay, true)
       .addField('Humidité:', `${current.humidity}%`, true)
       .setTimestamp()
-      .setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
+      .setFooter("Ce message s\'auto-détruira dans 1 minutes. 💥")
 	
-      message.channel.send({embed}).then(m => m.delete(600000));
+      message.channel.send({embed}).then(m => m.delete(60000));
   });
 
 }

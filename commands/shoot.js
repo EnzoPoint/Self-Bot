@@ -12,8 +12,8 @@ module.exports.run = function (bot, message) {
 	var shoot = new Discord.RichEmbed()
 	.addField(`${bot.user.username} est en train de tuer.!`, output)
 	.setColor(bleu)
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
-	message.channel.sendEmbed(shoot).then(m => m.delete(600000));
+	.setFooter("Ce message s\'auto-detruira dans 1 minutes.")
+	message.channel.sendEmbed(shoot).then(m => m.delete(60000));
    
 };
 

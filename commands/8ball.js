@@ -12,8 +12,8 @@ module.exports.run = (client, message, args, await) => {
 	.setColor(bleu)
 	.addField(`** :8ball: Question - **`, `**` + text + `**`)
 	.addField(`** :8ball: Reponse a votre question - **`, `**` + eightball + `**`)	
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. 💥")
-	message.channel.sendEmbed(embed).then(m => m.delete(600000));
+	.setFooter("Ce message s\'auto-détruira dans 1 minutes. 💥")
+	message.channel.sendEmbed(embed).then(m => m.delete(60000));
    
 } 
 

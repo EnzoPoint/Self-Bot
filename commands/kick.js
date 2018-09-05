@@ -11,7 +11,7 @@ message.delete();
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("**Kick**")
     .setColor("OOFFOO")
-	.setFooter("Ce message s\'auto-détruira dans 10 minutes. ??")
+	.setFooter("Ce message s\'auto-détruira dans 1 minutes.")
 
 
     .addField("Kicked User:", `${kUser} Avec l'ID ${kUser.id}`)
@@ -20,7 +20,7 @@ message.delete();
     .addField("Time:", message.createdAt)
     .addField("Reason:", kReason);
     
-    message.channel.send(kickEmbed).then(m => m.delete(600000));
+    message.channel.send(kickEmbed).then(m => m.delete(60000));
 }
 
 module.exports.help = {

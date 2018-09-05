@@ -6,7 +6,7 @@ if(message.author.id !== "295621584822075414") return;
     if (args.length < 1) {
         message.reply('Vous devez entrer le texte à inverser !');
     }
-    message.channel.send(args.join(' ').split('').reverse().join('')).then(m => m.delete(600000));
+    message.channel.send(args.join(' ').split('').reverse().join('')).then(m => m.delete(60000));
 };
 
 module.exports.help = {
