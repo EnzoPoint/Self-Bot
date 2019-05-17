@@ -1,3 +1,5 @@
+// NOT BY ME THIS 
+
 const RichEmbed = require('discord.js').RichEmbed;
 const got = require('got');
 const url = require('url');
